@@ -1,0 +1,5 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <dimen name="frame_height">560px</dimen>
+    <dimen name="frame_width">296px</dimen>
+</resources>

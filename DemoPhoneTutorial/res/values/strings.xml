@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string name="app_name">DemoPhoneTutorial</string>
+    <string name="hello_world">Hello world!</string>
+    <string name="action_settings">Settings</string>
+    
+    <string-array name="titles">
+        <item >Welcome to PrivateFolder, 1º Step, choose your file or files to make private</item>
+        <item >2º Step, push the private button</item>
+        <item >Great! Now this files are private and only you will can open them</item>
+    </string-array>
+
+</resources>

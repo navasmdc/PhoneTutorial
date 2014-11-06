@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/content"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#1E88E5">
+    
+    <FrameLayout
+        android:id="@+id/frame" 
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        >
+        <LinearLayout 
+            android:id="@+id/image_container"
+            android:layout_height="fill_parent"
+            android:layout_width="wrap_content"
+            android:orientation="horizontal">
+            
+        </LinearLayout>
+        
+    </FrameLayout>
+<LinearLayout
+    android:id="@+id/phone" 
+    android:layout_width="@dimen/frame_width"
+    android:layout_height="@dimen/frame_height"
+    android:background="@drawable/phone"
+    android:layout_centerInParent="true"
+    android:orientation="vertical" >
+    
+    <RelativeLayout 
+        android:id="@+id/origin_content"
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"/>        
+    
+</LinearLayout>
+
+<LinearLayout 
+    android:id="@+id/positionIndicator"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:layout_centerHorizontal="true"
+    android:layout_below="@id/phone"
+    android:paddingTop="16dp"
+    android:orientation="horizontal"/>
+
+<FrameLayout
+        android:id="@+id/frameTitles" 
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
+        android:layout_above="@id/phone"
+    	android:paddingBottom="16dp"
+        >
+
+        <LinearLayout
+            android:id="@+id/title_container"
+            android:layout_width="fill_parent"
+            android:layout_height="fill_parent"
+            android:orientation="horizontal" >
+            
+        </LinearLayout>
+        
+    </FrameLayout>
+    
+<com.gc.phonetutorial.views.ButtonFloat
+                android:id="@+id/buttonNext"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentRight="true"
+                android:layout_alignParentBottom="true"
+                android:layout_marginRight="24dp"/>
+
+
+
+</RelativeLayout>
