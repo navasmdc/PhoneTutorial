@@ -2,6 +2,10 @@
 
 # Phone tutorial
 
+<a href="https://play.google.com/store/apps/details?id=com.gc.demophonetutorial">
+  <img alt="Android app on Google Play" src="https://developer.android.com/images/brand/en_app_rgb_wo_45.png" />
+</a>
+
 ![Phone tutorial giff](images/TutorialPhone.gif)
 
 ## How to use
