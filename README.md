@@ -12,6 +12,18 @@
 
 If you want use this library, you only have to download PhoneTutorial project, import it into your workspace and add the project as a library in your android project settings.
 
+If you prefer it, you can use the gradle dependency, you have to add these lines in your build.gradle file:
+
+```xml
+repositories {
+    jcenter()
+}
+
+dependencies {
+    compile 'com.github.navasmdc:PhoneTutorial:1.+@aar'
+}
+```
+
 >This library support Android 2.2
 
 You have to add this lines in the AndroidManifest.xml file too:

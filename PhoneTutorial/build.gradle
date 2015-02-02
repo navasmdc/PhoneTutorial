@@ -1,0 +1,113 @@
+apply plugin: 'com.android.library'
+apply plugin: 'com.github.dcendents.android-maven'
+apply plugin: 'com.jfrog.bintray'
+
+android {
+    compileSdkVersion 19
+    buildToolsVersion '20.0.0'
+
+    sourceSets {
+        main {
+            manifest.srcFile 'AndroidManifest.xml'
+            java.srcDirs = ['src']
+
+            resources.srcDirs = ['src']
+            aidl.srcDirs = ['src']
+
+            renderscript.srcDirs = ['src']
+
+            res.srcDirs = ['res']
+            assets.srcDirs = ['assets']
+        }
+        androidTest.setRoot('tests')
+    }
+
+    defaultConfig {
+        minSdkVersion 8
+        targetSdkVersion 21
+        versionCode 3
+        versionName '1.2'
+    }
+}
+
+ext.siteUrl = 'https://github.com/navasmdc/PhoneTutorial'
+ext.issueUrl = 'https://github.com/navasmdc/PhoneTutorial/issues'
+ext.gitUrl = 'https://github.com/navasmdc/PhoneTutorial.git'
+
+bintray {
+    user = hasProperty('BINTRAY_USER') ? BINTRAY_USER : "navasmdc"
+    key = hasProperty('BINTRAY_KEY') ? BINTRAY_PASSWORD : ""
+
+    configurations = ["archives"]
+    pkg {
+        repo = 'maven'
+        name = 'PhoneTutorial'
+        desc = 'Make simple and beautiful tutorials start for your applications'
+        websiteUrl = siteUrl
+        issueTrackerUrl = issueUrl
+        vcsUrl = gitUrl
+        licenses = ['Apache-2.0']
+        labels = []
+        publicDownloadNumbers = true
+    }
+}
+
+dependencies {
+    compile fileTree(dir: 'libs', include: '*.jar')
+    compile 'com.android.support:support-v4:21.+'
+}
+
+install {
+    repositories.mavenInstaller {
+        pom {
+            project {
+                packaging 'aar'
+                name 'PhoneTutorial'
+                url siteUrl
+                licenses {
+                    license {
+                        name 'The Apache Software License, Version 2.0'
+                        url 'http://www.apache.org/licenses/LICENSE-2.0.txt'
+                    }
+                }
+                developers {
+                    developer {
+                        id 'navasmdc'
+                        name 'Iván Navas'
+                        email 'i.navas.mdc@gmail.com'
+                    }
+                }
+                scm {
+                    connection gitUrl
+                    developerConnection gitUrl
+                    url siteUrl
+                }
+            }
+        }
+    }
+}
+
+task sourcesJar(type: Jar) {
+    from android.sourceSets.main.java.srcDirs
+    classifier = 'sources'
+}
+
+task javadoc(type: Javadoc) {
+    source = android.sourceSets.main.java.srcDirs
+    classpath += project.files(android.getBootClasspath().join(File.pathSeparator))
+}
+
+task javadocJar(type: Jar, dependsOn: javadoc) {
+    classifier = 'javadoc'
+    from javadoc.destinationDir
+}
+
+artifacts {
+    archives javadocJar
+    archives sourcesJar
+}
+
+task findConventions << {
+    println project.getConvention()
+}
+
